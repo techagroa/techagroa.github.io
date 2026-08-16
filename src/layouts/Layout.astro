@@ -1,0 +1,82 @@
+---
+import CookieConsent from "../components/widgets/buttons/CookieConsent";
+import "../styles/global.css";
+import "../styles/main.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "Tech Agroa",
+  description = "Tech Agroa is a technology blog that provides insights, tutorials, and news on the latest trends in technology, software development, and digital innovation.",
+  image = "/favicons/og-image.png",
+  noindex = false,
+} = Astro.props;
+
+// Make sure Astro.site is configured in astro.config.mjs
+const siteURL = Astro.site ?? new URL(Astro.url.origin);
+const canonicalURL = new URL(Astro.url.pathname, siteURL);
+const imageURL = new URL(image, siteURL);
+
+const robots = noindex
+  ? "noindex, nofollow"
+  : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL.href} />
+
+    <!-- Robots -->
+    <meta name="robots" content={robots} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:site_name" content="Tech Agroa" />
+    <meta property="og:image" content={imageURL.href} />
+    <meta property="og:image:alt" content={title} />
+
+    <!-- Twitter / X -->
+    <!-- <meta name="twitter:card" content="summary" /> -->
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageURL.href} />
+
+    <!-- Astro -->
+    <meta name="generator" content={Astro.generator} />
+  </head>
+
+  <body class="page">
+    <slot />
+    <CookieConsent client:load />
+  </body>
+</html>

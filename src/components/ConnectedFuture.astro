@@ -1,0 +1,23 @@
+---
+import NetworkIcon from "./icons/NetworkIcon.svelte";
+import connectedFuture from "../assets/connected-future.svg";
+---
+
+<section class="flex flex-col items-center text-center">
+  <h2
+    class="section-title md:text-3xl text-2xl font-bold mb-6 flex items-center gap-2"
+  >
+    <NetworkIcon />
+    Connected Future
+  </h2>
+
+  <img
+    class="diagram"
+    src={connectedFuture.src}
+    alt="Connected Future flow diagram"
+    title="Connected Future flow diagram"
+    width="50%"
+    loading="lazy"
+    style="margin: 0 auto; display: block;"
+  />
+</section>

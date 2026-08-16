@@ -1,0 +1,313 @@
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+:root {
+  --background: #f4fff7;
+  --text: #123b2a;
+  --muted: #4d6659;
+  --card: rgba(255, 255, 255, 0.8);
+  --border: rgba(46, 125, 50, 0.2);
+  --accent: #2e7d32;
+  --shadow: rgba(20, 70, 40, 0.15);
+}
+
+
+/* =====================================================
+   DARK THEME
+===================================================== */
+
+body.dark {
+  --background: #06131c;
+  --text: #e6fff5;
+  --muted: #9fc2b4;
+  --card: rgba(13, 34, 45, 0.88);
+  --border: rgba(0, 229, 255, 0.2);
+  --accent: #00e5ff;
+  --shadow: rgba(0, 229, 255, 0.12);
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+  margin-bottom: 25px;
+}
+
+
+h1 {
+  margin: 1px 0;
+  font-size: clamp(2rem, 6vw, 4rem);
+  letter-spacing: 1px;
+}
+
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+
+/* =====================================================
+   THEME SWITCHER
+===================================================== */
+
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 10px auto;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: var(--card);
+  box-shadow: 0 8px 30px var(--shadow);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+.theme-switcher button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+.theme-switcher button:hover {
+  color: var(--text);
+}
+
+
+.theme-switcher button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+
+/* =====================================================
+   CITY SVG BACKGROUND
+===================================================== */
+
+.city-container {
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  margin: 0 auto 35px;
+  padding: 15px;
+  border-radius: 28px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+
+  /*
+   * LIGHT MODE
+   */
+  background-image: var(--sun-city);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: 0 15px 50px var(--shadow);
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+/* =====================================================
+   DARK CITY SVG
+===================================================== */
+body.dark .city-container {
+  background-image: var(--moon-city);
+}
+
+
+/* =====================================================
+   CONTENT SECTIONS
+===================================================== */
+.section {
+  max-width: 850px;
+  margin: 30px auto;
+  padding: 28px;
+  text-align: left;
+  border-radius: 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 35px var(--shadow);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+  color: var(--accent);
+}
+
+
+.section-title .icon {
+  width: 25px;
+  height: 25px;
+}
+
+
+.section p {
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+
+.feature {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: border-color 0.4s ease;
+}
+
+
+.feature-icon {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 12px;
+  color: var(--accent);
+}
+
+
+.feature p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   DIAGRAM
+===================================================== */
+.diagram {
+  margin: 0;
+  padding: 20px;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text);
+  font-family: monospace;
+  line-height: 1.5;
+  display: grid;
+  place-content: center;
+}
+
+
+body.dark .diagram {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+footer {
+  margin-top: 45px;
+  color: var(--muted);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+  .page {
+    padding-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .theme-switcher button {
+    padding: 9px 13px;
+    font-size: 13px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  .diagram {
+    font-size: 12px;
+  }
+
+  .city-container {
+    height: 350px;
+    max-width: 100%;
+  }
+}

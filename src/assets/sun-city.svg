@@ -1,0 +1,574 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 800 800"
+    width="800"
+    height="800">
+
+    <defs>
+
+        <!-- ================================================= -->
+        <!-- DAYTIME SKY -->
+        <!-- ================================================= -->
+
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#42A5F5" />
+            <stop offset="45%" stop-color="#81D4FA" />
+            <stop offset="100%" stop-color="#E1F5FE" />
+        </linearGradient>
+
+
+        <!-- Buildings -->
+
+        <linearGradient id="building" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#607D8B" />
+            <stop offset="100%" stop-color="#263B45" />
+        </linearGradient>
+
+
+        <!-- Glass -->
+
+        <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#B3E5FC" />
+            <stop offset="45%" stop-color="#4FC3F7" />
+            <stop offset="100%" stop-color="#1976A8" />
+        </linearGradient>
+
+
+        <!-- Agriculture -->
+
+        <linearGradient id="farm" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#9CCC65" />
+            <stop offset="100%" stop-color="#388E3C" />
+        </linearGradient>
+
+
+        <!-- Greenhouse -->
+
+        <linearGradient id="greenhouse" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#E8F5E9" stop-opacity=".85" />
+            <stop offset="100%" stop-color="#66BB6A" stop-opacity=".6" />
+        </linearGradient>
+
+
+        <!-- Technology -->
+
+        <linearGradient id="technology" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00A6C7" />
+            <stop offset="100%" stop-color="#00A86B" />
+        </linearGradient>
+
+
+        <!-- Sun -->
+
+        <radialGradient id="sun">
+            <stop offset="0%" stop-color="#FFFDE7" />
+            <stop offset="55%" stop-color="#FFD54F" />
+            <stop offset="100%" stop-color="#FFB300" />
+
+        </radialGradient>
+
+
+        <!-- Soft sunlight -->
+
+        <filter id="sunGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="18" />
+
+        </filter>
+
+
+        <!-- Subtle technology glow -->
+
+        <filter id="techGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+
+        </filter>
+
+
+        <clipPath id="round">
+            <circle cx="400" cy="400" r="365" />
+        </clipPath>
+
+    </defs>
+
+
+    <!-- ================================================= -->
+    <!-- SKY -->
+    <!-- ================================================= -->
+
+    <circle cx="400"
+        cy="400"
+        r="365"
+        fill="url(#sky)" />
+
+
+    <g clip-path="url(#round)">
+
+
+        <!-- ================================================= -->
+        <!-- SUN -->
+        <!-- ================================================= -->
+
+        <circle cx="640" cy="120" r="95" fill="#FFF59D" opacity=".22" filter="url(#sunGlow)" />
+
+
+        <circle cx="640" cy="120" r="48" fill="url(#sun)">
+            <animate attributeName="r" values="48;50;48" dur="5s" repeatCount="indefinite" />
+        </circle>
+
+
+        <!-- ================================================= -->
+        <!-- CLOUDS -->
+        <!-- ================================================= -->
+
+        <g fill="#FFFFFF" opacity=".65">
+            <g>
+                <ellipse cx="120" cy="145" rx="55" ry="22" />
+                <ellipse cx="165" cy="135" rx="45" ry="28" />
+                <ellipse cx="205" cy="150" rx="55" ry="20" />
+                <animateTransform attributeName="transform" type="translate" values="0 0;25 0;0 0"
+                    dur="18s" repeatCount="indefinite" />
+            </g>
+
+            <g>
+                <ellipse cx="470" cy="105" rx="45" ry="18" />
+                <ellipse cx="510" cy="95" rx="38" ry="24" />
+                <ellipse cx="550" cy="108" rx="48" ry="18" />
+                <animateTransform attributeName="transform" type="translate" values="0 0;-30 0;0 0"
+                    dur="22s" repeatCount="indefinite" />
+            </g>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- DISTANT CITY -->
+        <!-- ================================================= -->
+
+        <g fill="#78909C" opacity=".55">
+            <rect x="0" y="350" width="70" height="230" />
+            <rect x="70" y="315" width="65" height="265" />
+            <rect x="135" y="340" width="55" height="240" />
+
+            <rect x="610" y="335" width="60" height="245" />
+            <rect x="670" y="300" width="65" height="280" />
+            <rect x="735" y="345" width="65" height="235" />
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- MAIN CITY -->
+        <!-- ================================================= -->
+
+
+        <!-- LEFT BUILDING -->
+
+        <g>
+            <path
+                d="M90 575
+           L90 225
+           L145 180
+           L200 225
+           L200 575Z"
+                fill="url(#building)" stroke="#455A64" stroke-width="3" />
+
+            <!-- Glass side -->
+            <path d="M145 180
+           L145 575
+           L180 575
+           L180 205Z"
+                fill="url(#glass)" opacity=".45" />
+
+            <!-- Windows -->
+            <g fill="#B3E5FC">
+                <rect x="108" y="255" width="14" height="27" />
+                <rect x="137" y="255" width="14" height="27" />
+                <rect x="166" y="255" width="14" height="27" />
+
+                <rect x="108" y="305" width="14" height="27" />
+                <rect x="137" y="305" width="14" height="27" />
+                <rect x="166" y="305" width="14" height="27" />
+
+                <rect x="108" y="355" width="14" height="27" />
+                <rect x="137" y="355" width="14" height="27" />
+                <rect x="166" y="355" width="14" height="27" />
+
+                <rect x="108" y="405" width="14" height="27" />
+                <rect x="137" y="405" width="14" height="27" />
+                <rect x="166" y="405" width="14" height="27" />
+            </g>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- CENTRAL SMART TOWER -->
+        <!-- ================================================= -->
+
+        <g>
+            <path
+                d="M285 575
+           L285 145
+           L340 90
+           L395 145
+           L395 575Z"
+                fill="url(#building)" stroke="#455A64" stroke-width="3" />
+
+            <!-- glass facade -->
+            <path d="M340 90
+           L340 575
+           L375 575
+           L375 120Z"
+                fill="url(#glass)" opacity=".48" />
+
+            <!-- antenna -->
+            <line x1="340" y1="90" x2="340" y2="48" stroke="#00838F" stroke-width="5" />
+
+            <circle cx="340" cy="44" r="7" fill="#00A86B" filter="url(#techGlow)">
+                <animate attributeName="r" values="5;9;5" dur="2s" repeatCount="indefinite" />
+            </circle>
+
+            <!-- windows -->
+            <g fill="#B3E5FC">
+                <rect x="305" y="175" width="18" height="32" />
+                <rect x="345" y="175" width="18" height="32" />
+
+                <rect x="305" y="230" width="18" height="32" />
+                <rect x="345" y="230" width="18" height="32" />
+
+                <rect x="305" y="285" width="18" height="32" />
+                <rect x="345" y="285" width="18" height="32" />
+
+                <rect x="305" y="340" width="18" height="32" />
+                <rect x="345" y="340" width="18" height="32" />
+
+                <rect x="305" y="395" width="18" height="32" />
+                <rect x="345" y="395" width="18" height="32" />
+            </g>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- RIGHT BUILDING -->
+        <!-- ================================================= -->
+
+        <g>
+            <path
+                d="M455 575
+           L455 235
+           L510 190
+           L565 235
+           L565 575Z"
+                fill="url(#building)" stroke="#455A64" stroke-width="3" />
+
+            <path d="M510 190
+           L510 575
+           L545 575
+           L545 215Z"
+                fill="url(#glass)" opacity=".45" />
+
+            <g fill="#B3E5FC">
+                <rect x="475" y="265" width="14" height="27" />
+                <rect x="505" y="265" width="14" height="27" />
+                <rect x="535" y="265" width="14" height="27" />
+
+                <rect x="475" y="315" width="14" height="27" />
+                <rect x="505" y="315" width="14" height="27" />
+                <rect x="535" y="315" width="14" height="27" />
+
+                <rect x="475" y="365" width="14" height="27" />
+                <rect x="505" y="365" width="14" height="27" />
+                <rect x="535" y="365" width="14" height="27" />
+
+                <rect x="475" y="415" width="14" height="27" />
+                <rect x="505" y="415" width="14" height="27" />
+                <rect x="535" y="415" width="14" height="27" />
+            </g>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- ROOFTOP FARM LEFT -->
+        <!-- ================================================= -->
+
+        <g>
+            <rect x="95" y="202" width="100" height="20" rx="5" fill="#455A40" />
+
+            <!-- crop boxes -->
+            <g fill="#66BB6A">
+                <rect x="103" y="180" width="22" height="18" rx="4" />
+                <rect x="133" y="180" width="22" height="18" rx="4" />
+                <rect x="163" y="180" width="22" height="18" rx="4" />
+            </g>
+
+            <!-- solar panels -->
+            <g fill="#1B4F68" stroke="#4FC3F7" stroke-width="2">
+                <rect x="108" y="153" width="32" height="20" />
+                <rect x="148" y="153" width="32" height="20" />
+            </g>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- CENTRAL GREENHOUSE -->
+        <!-- ================================================= -->
+
+        <g>
+            <path d="M280 145
+           L340 95
+           L400 145Z" fill="url(#greenhouse)"
+                stroke="#4CAF80" stroke-width="3" />
+
+            <line x1="340" y1="95" x2="340" y2="145" stroke="#4CAF80" stroke-width="3" />
+
+            <line x1="310" y1="120" x2="310" y2="145" stroke="#4CAF80" stroke-width="2" />
+
+            <line x1="370" y1="120" x2="370" y2="145" stroke="#4CAF80" stroke-width="2" />
+
+            <!-- greenhouse crops -->
+            <g fill="#7CB342">
+                <circle cx="318" cy="136" r="7" />
+                <circle cx="340" cy="130" r="8" />
+                <circle cx="362" cy="136" r="7" />
+            </g>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- RIGHT ROOFTOP FARM -->
+        <!-- ================================================= -->
+
+        <g>
+            <rect x="460" y="212" width="100" height="20" rx="5" fill="#455A40" />
+
+            <g fill="#66BB6A">
+                <rect x="470" y="188" width="18" height="21" rx="4" />
+                <rect x="497" y="188" width="18" height="21" rx="4" />
+                <rect x="524" y="188" width="18" height="21" rx="4" />
+            </g>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- AGRICULTURAL LAND -->
+        <!-- ================================================= -->
+
+        <path
+            d="M0 555
+         Q200 510
+         400 555
+         Q600 510
+         800 555
+         L800 800
+         L0 800Z"
+            fill="url(#farm)" />
+
+
+        <!-- Field rows -->
+
+        <g fill="none" stroke="#B7D86A" stroke-width="8" stroke-linecap="round">
+            <path d="M-30 635    Q200 565    410 635    Q600 690    830 620" />
+
+            <path d="M-30 695    Q200 625    410 695    Q600 745    830 680" />
+
+            <path d="M-30 755    Q200 685    410 755    Q600 800    830 745" />
+
+            <!-- subtle field movement -->
+            <animate attributeName="opacity" values=".65;1;.65" dur="4s" repeatCount="indefinite" />
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- GROUND GREENHOUSES -->
+        <!-- ================================================= -->
+
+        <g>
+            <!-- left -->
+            <path d="M55 560
+           L130 515
+           L205 560Z" fill="url(#greenhouse)"
+                stroke="#A5D6A7" stroke-width="3" />
+
+            <line x1="130" y1="515" x2="130" y2="560" stroke="#A5D6A7" stroke-width="3" />
+
+            <line x1="92" y1="538" x2="92" y2="560" stroke="#A5D6A7" stroke-width="2" />
+
+            <line x1="168" y1="538" x2="168" y2="560" stroke="#A5D6A7" stroke-width="2" />
+
+            <!-- right -->
+            <path d="M595 560
+           L670 515
+           L745 560Z" fill="url(#greenhouse)"
+                stroke="#A5D6A7" stroke-width="3" />
+
+            <line x1="670" y1="515" x2="670" y2="560" stroke="#A5D6A7" stroke-width="3" />
+
+            <line x1="632" y1="538" x2="632" y2="560" stroke="#A5D6A7" stroke-width="2" />
+
+            <line x1="708" y1="538" x2="708" y2="560" stroke="#A5D6A7" stroke-width="2" />
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- CROPS -->
+        <!-- ================================================= -->
+
+        <g stroke="#2E6B32" stroke-width="5" stroke-linecap="round">
+            <line x1="285" y1="650" x2="285" y2="615" />
+            <line x1="315" y1="655" x2="315" y2="620" />
+            <line x1="345" y1="650" x2="345" y2="615" />
+
+            <line x1="455" y1="690" x2="455" y2="650" />
+            <line x1="485" y1="695" x2="485" y2="655" />
+            <line x1="515" y1="690" x2="515" y2="650" />
+
+        </g>
+
+
+        <g fill="#66BB6A">
+            <circle cx="278" cy="614" r="9" />
+            <circle cx="292" cy="620" r="8" />
+            <circle cx="308" cy="619" r="9" />
+            <circle cx="322" cy="625" r="8" />
+            <circle cx="338" cy="614" r="9" />
+            <circle cx="352" cy="620" r="8" />
+
+            <circle cx="448" cy="649" r="9" />
+            <circle cx="462" cy="655" r="8" />
+            <circle cx="478" cy="654" r="9" />
+            <circle cx="492" cy="660" r="8" />
+            <circle cx="508" cy="649" r="9" />
+            <circle cx="522" cy="655" r="8" />
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- SMART FARM SENSOR -->
+        <!-- ================================================= -->
+
+        <g>
+            <line x1="400" y1="565" x2="400" y2="620" stroke="#455A40" stroke-width="6" />
+
+            <circle cx="400" cy="555" r="9" fill="#00A86B" filter="url(#techGlow)">
+                <animate attributeName="r" values="7;12;7" dur="2s" repeatCount="indefinite" />
+            </circle>
+
+            <!-- wireless waves -->
+            <path d="M380 545    Q400 525    420 545" fill="none" stroke="#008C95" stroke-width="3"
+                stroke-dasharray="5 5">
+                <animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1s"
+                    repeatCount="indefinite" />
+            </path>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- TECHNOLOGY NETWORK -->
+        <!-- ================================================= -->
+
+        <g fill="none" stroke="url(#technology)" stroke-width="3" opacity=".65">
+            <!-- city to farm -->
+            <path d="M340 90    C320 230    400 380    400 555" />
+
+            <path d="M145 180    C180 280    270 420    400 555" />
+
+            <path d="M510 190    C480 300    450 430    400 555" />
+
+            <animate attributeName="opacity" values=".3;.75;.3" dur="5s" repeatCount="indefinite" />
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- MOVING DATA PARTICLES -->
+        <!-- ================================================= -->
+
+        <g fill="#00A86B" filter="url(#techGlow)">
+            <circle cx="340" cy="145" r="5">
+                <animate attributeName="cy" values="145;540;145" dur="5s" repeatCount="indefinite" />
+            </circle>
+
+            <circle cx="150" cy="220" r="4">
+                <animate attributeName="cy" values="220;520;220" dur="4s" repeatCount="indefinite" />
+            </circle>
+
+            <circle cx="505" cy="230" r="4">
+                <animate attributeName="cy" values="230;520;230" dur="4.5s" repeatCount="indefinite" />
+            </circle>
+
+        </g>
+
+
+        <!-- ================================================= -->
+        <!-- SMART ROAD -->
+        <!-- ================================================= -->
+
+        <path d="M0 575  Q200 535  400 585  Q600 630  800 565" fill="none" stroke="#546E7A"
+            stroke-width="45" />
+
+
+        <path d="M0 575  Q200 535  400 585  Q600 630  800 565" fill="none" stroke="#FFFFFF"
+            stroke-width="4" stroke-dasharray="18 20">
+            <animate attributeName="stroke-dashoffset" from="0" to="-76" dur="2s"
+                repeatCount="indefinite" />
+
+        </path>
+
+
+        <!-- ================================================= -->
+        <!-- TREES -->
+        <!-- ================================================= -->
+
+        <g>
+            <rect x="45" y="520" width="9" height="45" fill="#795548" />
+            <circle cx="50" cy="500" r="28" fill="#43A047" />
+
+            <rect x="745" y="520" width="9" height="45" fill="#795548" />
+            <circle cx="750" cy="500" r="28" fill="#43A047" />
+
+        </g>
+
+    </g>
+
+
+    <!-- ================================================= -->
+    <!-- OUTER FRAME -->
+    <!-- ================================================= -->
+
+    <circle cx="400"
+        cy="400"
+        r="365"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="6"
+        opacity=".9" />
+
+
+    <!-- subtle technology ring -->
+
+    <circle cx="400"
+        cy="400"
+        r="348"
+        fill="none"
+        stroke="#008C95"
+        stroke-width="2"
+        stroke-dasharray="18 15"
+        opacity=".65">
+
+        <animateTransform attributeName="transform" type="rotate" values="0 400 400;   360 400 400"
+            dur="25s" repeatCount="indefinite" />
+
+    </circle>
+
+</svg>
